@@ -6,8 +6,8 @@
 #include <dt-bindings/zmk/bt.h>
 
 // Home row mods macro
-#define HRML(k1,k2,k3,k4) &lpht LALT k1  &lpht LGUI k2  &lpht LSHFT k3  &lpht LCTRL k4
-#define HRMR(k1,k2,k3,k4) &rpht RCTRL k1  &rpht RSHFT k2  &rpht RGUI k3  &rpht RALT k4
+#define HRML(k1,k2,k3,k4) &ht LALT k1  &ht LGUI k2  &ht LSHFT k3  &ht LCTRL k4
+#define HRMR(k1,k2,k3,k4) &ht RCTRL k1  &ht RSHFT k2  &ht RGUI k3  &ht RALT k4
 
 / {
     behaviors {
@@ -19,28 +19,6 @@
             quick-tap-ms = <150>;
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
-        };
-        lpht: left_positional_hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KEYS_R KEYS_T>;
-            hold-trigger-on-release;
-        };
-        rpht: right_positional_hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KEYS_L KEYS_T>;
-            hold-trigger-on-release;
         };
     };
 
